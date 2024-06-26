@@ -1,0 +1,30 @@
+.styled-component {
+    font-size: 16px;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 13px;
+    text-align: center;
+    width: 400px;
+    margin: 0 auto;
+  }
+
+  .styled-component h2 {
+    margin: 10px 0;
+    color: #0056b3;
+  }
+  
+  .styled-component p {
+    margin: 10px 0;
+  }
+  .styled-component.styled {
+    background-color: #63d0f1;
+    color: rgb(235, 116, 116);
+  }
+  
+ 
+  
+  .styled-component.styled h2 {
+    color: rgb(245, 50, 50);
+  }
+  
+ 
