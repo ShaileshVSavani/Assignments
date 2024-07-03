@@ -11,7 +11,7 @@ const InputComponent = () => {
   const addTaskHandler = () => { 
     if (task === "") {
       setErrorMessage('Please enter a task name');
-      alert("Task list is empty")
+      alert("Task name is empty")
       return;
     }
     setTaskList([...taskList, {task: task,
@@ -20,15 +20,17 @@ const InputComponent = () => {
     
     setErrorMessage('');
     alert("Task added successfully")
+  
   }
+
   return (
     <>
     <div>
       <input type="text" placeholder="Enter Task" className="input"  onChange={(e) => setTask(e.target.value)} />
       <button className="button" onClick={addTaskHandler} >Add Task</button>
     </div>
-      <TaskListComponent taskList={taskList} />
-      <div className="error-message">{ errorMessage}</div>
+      <TaskListComponent taskList={taskList} setTaskList={setTaskList}/>
+      <center className="error-message">{ errorMessage}</center>
     </>
   )
 }

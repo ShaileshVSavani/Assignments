@@ -1,0 +1,13 @@
+/* Styler.css */
+.highlighted {
+    background-color: yellow;
+    padding: 10px;
+    border: 1px solid black;
+  }
+  
+  .default {
+    background-color: white;
+    padding: 10px;
+    border: 1px solid black;
+  }
+  
