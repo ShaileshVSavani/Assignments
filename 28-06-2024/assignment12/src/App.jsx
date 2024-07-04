@@ -10,9 +10,10 @@ function App() {
   const [isStart, setIsStart] = useState(false)
 
   useEffect(() => { 
-     console.log("mounted")
+     console.log("component mounted")
     let intervalId;
     if (isStart) {
+      console.log("component updated")
       intervalId = setInterval(() => {
         // setSec((prevSec) => prevSec + 1);
         setSec(sec + 1)
@@ -34,6 +35,7 @@ function App() {
       }, 1000);
     }
     return () => clearInterval(intervalId);
+    
   }, [isStart, sec])
 
   return (
