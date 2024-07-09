@@ -1,0 +1,15 @@
+
+.items{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 15px;
+  padding: 15px;
+}
+img{
+  width: 50%;
+  height: 50%;
+}
+.item:hover{
+  transform: scale(1.05);
+  transition: all 0.5s ;
+}
