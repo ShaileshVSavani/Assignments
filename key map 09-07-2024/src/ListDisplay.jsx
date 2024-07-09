@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Item = ({title, description, category, discountPercentage, rating, brand,images,price}) => {
+const ListDisplay = ({title, description, category, discountPercentage, rating, brand,images,price}) => {
   return (
     <div className='my-3 shadow-sm p-3 item rounded-4'>
         <center><h2>{title}</h2>
@@ -17,4 +17,4 @@ const Item = ({title, description, category, discountPercentage, rating, brand,i
   )
 }
 
-export default Item
+export default ListDisplay

@@ -1,7 +1,8 @@
 
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Item from './Item'
+import ListDisplay from './ListDisplay';
+
 const data =  [
     {
       "id": 1,
@@ -1805,7 +1806,7 @@ function App() {
 
   return (
     <div className='items'>
-      {data.map((item)=><Item key={item.id} {...item}/>)}
+      {data.map((item)=><ListDisplay key={item.id} {...item}/>)}
     </div>
   )
 }
