@@ -14,7 +14,7 @@ const UserAuthentication = () => {
       <div>
         {/* {isLoggedIn? <h1>Welcome!</h1> : <h1>Plsease Login</h1>} */}
         <h1 style={{color: isLoggedIn ? "yellowgreen" : "palegreen"}}>{isLoggedIn? "Welcome!":"Plsease Login"}</h1>
-        <button onClick={handleClick}>Toggle Login</button>
+        <button onClick={()=>handleClick()}>Toggle Login</button>
       </div>
   )
 }
