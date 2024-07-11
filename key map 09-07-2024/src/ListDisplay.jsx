@@ -1,10 +1,10 @@
 import React from 'react'
 
-const ListDisplay = ({title, description, category, discountPercentage, rating, brand,images,price}) => {
+const ListDisplay = ({title, description, category, discountPercentage, rating, brand,thumbnail,price}) => {
   return (
     <div className='my-3 shadow-sm p-3 item rounded-4'>
         <center><h2>{title}</h2>
-        <img  src={images} alt={title} />
+        <img  src={thumbnail} alt={title} />
         </center>
         <p>{description}</p>
         <p>Category: {category}</p>
