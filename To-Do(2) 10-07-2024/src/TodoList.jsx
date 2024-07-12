@@ -27,13 +27,11 @@ const TodoList = () => {
   return (
     <div>
         <div>
-        <input type="text"  value={todos}   onChange={(e)=>setTodos(e.target.value)} />
-        <br />
-        <button className='mt-3' onClick={handleAdd}>Add ToDo</button>
-       
-    </div>
+          <input type="text"  value={todos}   onChange={(e)=>setTodos(e.target.value)} />
+          <button className='mt-3 ms-2 p-2' onClick={handleAdd}>Add ToDo</button>
+        </div>
     
-    <TodoItems todoList={todoList} setTodoList={setTodoList}/>
+    < TodoItems todoList={todoList} setTodoList={setTodoList}/>
     </div>
   )
 }

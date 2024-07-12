@@ -14,21 +14,22 @@ const TodoItems = ({todoList, setTodoList}) => {
     const handleStatus = (index) => {
       let updatedDataList = todoList.map((ele, i) =>{
         if(i===index){
+          console.log(ele);
           return {...ele, completed:!ele.completed}
         }
         return ele;
       })
 
+      setTodoList(updatedDataList)
     }
-    
   return (
-    <div>
+    <div className='todo'>
         {todoList.map((todo, index) => (
-          <div key={index}>
+          <div key={index} className='todoItems'>
             {/* <h3 style={{color: todo.completed ? "green" : "red"}}>{todo.text}</h3> */}
-            <h3 style={{textDecoration : todo.completed ? "line-through" : ""}}>{todo.text}</h3>
-            <button onClick={()=>deleteTodo(index)}>Delete</button>
-            <button onClick={()=>handleStatus(index)}>{ todo.Completed ? "UnComplete" : "Completed"}</button>
+            <h3  className='py-2' style={{textDecoration : todo.completed ? "line-through" : ""}}>{todo.text}</h3>
+            <button  className='btn btn-danger' onClick={()=>deleteTodo(index)}>Delete</button>
+            <button  className='btn btn-success ms-3' onClick={()=>handleStatus(index)}>{ todo.completed ? "UnComplete" : "Completed"}</button>
           </div>
         ))}
       </div>
