@@ -22,7 +22,7 @@ const BlogPostForm = ({ onSave, postToEdit }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
       // onSave({ title, content, image, date, id: postToEdit ? postToEdit.id : Date.now() });
-          // Create a new post object with all the fields
+       
     const newPost = {
         title: title,
         content: content,
@@ -31,7 +31,7 @@ const BlogPostForm = ({ onSave, postToEdit }) => {
         id: postToEdit ? postToEdit.id : Date.now(),
       };
       
-      // Call the onSave function with the new post object
+    
       onSave(newPost);
     setTitle('');
     setContent('');

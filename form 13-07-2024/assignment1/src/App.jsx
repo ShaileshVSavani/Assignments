@@ -33,7 +33,7 @@ const App = () => {
 
   return (
     <div className="app">
-      <h1>My Blog</h1>
+      <h2>My Blog</h2>
       <BlogPostForm onSave={handleSavePost} postToEdit={postToEdit} />
       <BlogPostList posts={posts} onEdit={handleEditPost} />
     </div>
