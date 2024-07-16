@@ -228,10 +228,10 @@ const QuizApp = () => {
                     isAnswered
                       ? key === question.correct
                         ? 'green'
-                        : selectedOptions[index] === key
+                        : key === selectedOptions[index]
                         ? 'red'
                         : ''
-                      : selectedOptions[index] === key
+                      : key === selectedOptions[index]
                       ? 'lightblue'
                       : '',
                   pointerEvents: isAnswered ? 'none' : 'auto',

@@ -7,7 +7,7 @@ const BlogPostList = ({ posts, onEdit }) => {
   return (
     <div className="blog-post-list">
       {posts.map(post => (
-        <BlogPost key={post.id} post={post} onEdit={onEdit} />
+        <BlogPost key={post.id} post= {post} onEdit={onEdit} />
       ))}
     </div>
   );
