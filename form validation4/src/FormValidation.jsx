@@ -1,7 +1,7 @@
 import { useFormik } from "formik";
 import React from "react";
 import * as yup from "yup";
-import "bootstrap/dist/css/bootstrap.min.css";
+
 import "./App.css"
 
 const FormValidation = () => {
@@ -9,15 +9,15 @@ const FormValidation = () => {
     username: yup.string()
     .min(4)
     .max(15)
-    .matches(/^[a-zA-Z0-9]{4,}([._]?[a-zA-Z0-9]+)*$/, )
+    .matches(/^[a-zA-Z0-9]{4,}([._]?[a-zA-Z0-9]+)*$/, "username must be at least 4 characters" )
     .required("Username is required"),
     email: yup.string()
       .email("Invalid email address")
-      .matches(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)
+      .matches(/^[^\s@]+@[^\s@]+\.[^\s@]+$/,"email must be a valid email address")
       .required("Email is required"),
     password: yup.string()
     .min(8)
-    .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)
+    .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/, "password must be at least 8 characters long")
     .required("Password is required"),
   });
 
@@ -77,7 +77,7 @@ const FormValidation = () => {
         {/* {(formData.touched.password && formData.errors.password) ? <p>{formData.errors.password}</p> : null} */}
         {(formData.errors.password) ? <p>{formData.errors.password}</p> : null}
         <br />
-        <input type="submit" value="Submit" />
+        <input type="submit" value="Submit" className="btn btn-light"/>
       </form>
     </div>
   );
