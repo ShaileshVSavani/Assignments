@@ -9,15 +9,15 @@ const FormValidation = () => {
     username: yup.string()
     .min(4)
     .max(15)
-    .matches(/^[a-zA-Z0-9]{4,}([._]?[a-zA-Z0-9]+)*$/, )
+    .matches(/^[a-zA-Z0-9]{4,}([._]?[a-zA-Z0-9]+)*$/, "User name must be at least 4 characters")
     .required("Username is required"),
     email: yup.string()
       .email("Invalid email address")
-      .matches(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)
+      .matches(/^[^\s@]+@[^\s@]+\.[^\s@]+$/, "Invalid email address")
       .required("Email is required"),
     password: yup.string()
     .min(8)
-    .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)
+    .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/, "Password must be at least 8 character" )
     .required("Password is required"),
   });
 
@@ -30,6 +30,8 @@ const FormValidation = () => {
     validationSchema: userValidationSchema,
     onSubmit: (values) => {
       console.log(values);
+      alert("Form submission completed successfully");
+      formData.resetForm();
     },
 
     validateonChange: true,
