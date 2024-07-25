@@ -7,22 +7,55 @@ import TodoItems from './TodoItems'
 
 const TodoList = () => {
     const [todos, setTodos] = useState("")
-    const [todoList, setTodoList] = useState([])
+    // const [todoList, setTodoList] = useState([])
+//   const [todoList, setTodoList] = useState(() => {
+    // return JSON.parse(localStorage.getItem("todoList")) || [];
+    
+    // const storedTodos = localStorage.getItem("todoList");
+    // return storedTodos ? JSON.parse(storedTodos) : [];
+    const [todoList, setTodoList] = useState(() => JSON.parse(localStorage.getItem("todoList")) || []);
+//   })
+  
+
 
     const handleAdd = () => {
       let newTodo ={
         id: todoList.length + 1,
         text: todos,
         completed: false
-      }
+        }
+        
+       
+
+        //Using the includes method directly isn't suitable for this case because includes checks for the existence of an element in an array but does not allow for a custom comparison function. However, you can map the todoList array to an array of todo texts and then use includes to check if the current input (todos) is already in the list.
+
+        // Convert todos to lowercase for case-insensitive comparison
+        //  const lowerCaseTodos = todos.toLowerCase();
+        // const todoTexts = todoList.map(todo => todo.text.toLowerCase());
+        // if (todoTexts.includes(lowerCaseTodos)) {
+        //     console.log("Todo already exists");
+        //     setTodos("")
+        //     return;
+        // }
+         
+        // another concept
+
+        if (todoList.some((todo) => todo.text.toLowerCase() === todos.toLowerCase())) {
+            console.log("Todo already exists");
+            setTodos("")
+            return;
+        }
+
         if(todos){
             setTodoList([...todoList, newTodo ])
             console.log(todoList)
             console.log(todos);
             setTodos("")
-     }
+        }
+      
     }
     
+  localStorage.setItem('todoList', JSON.stringify(todoList))
 
   return (
     <div>
@@ -37,3 +70,5 @@ const TodoList = () => {
 }
 
 export default TodoList
+
+

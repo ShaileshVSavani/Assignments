@@ -111,15 +111,17 @@ const SimpleForm = () => {
                 theme: "colored",
                 transition: Bounce
             });
+
+            console.log(userData);
+            setUserData({
+                username: '',
+                email: '',
+                phone: '',
+                password: ''
+            });
         }
 
-        console.log(userData);
-        setUserData({
-            username: '',
-            email: '',
-            phone: '',
-            password: ''
-        });
+      
     };
 
     return (

@@ -1,7 +1,7 @@
 import { useFormik } from "formik";
 import React from "react";
 import * as yup from "yup";
-import "bootstrap/dist/css/bootstrap.min.css";
+
 import "./App.css"
 
 const FormValidation = () => {
@@ -79,7 +79,7 @@ const FormValidation = () => {
         {/* {(formData.touched.password && formData.errors.password) ? <p>{formData.errors.password}</p> : null} */}
         {(formData.errors.password) ? <p>{formData.errors.password}</p> : null}
         <br />
-        <input type="submit" value="Submit" />
+        <input type="submit" value="Submit" className="btn btn-light"/>
       </form>
     </div>
   );
