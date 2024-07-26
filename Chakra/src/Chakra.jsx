@@ -8,6 +8,7 @@ import {
   Box,
 } from "@chakra-ui/react";
 import { Grid, GridItem } from '@chakra-ui/react'
+import { CircularProgress, CircularProgressLabel } from '@chakra-ui/react'
 
 const Chakra = () => {
   return (
@@ -73,6 +74,11 @@ const Chakra = () => {
     </GridItem>
   </Grid>
    </section>
+   <CircularProgress value={80} />
+   <CircularProgress isIndeterminate color='green.300' />
+   <CircularProgress value={40} color='green.400'>
+  <CircularProgressLabel>40%</CircularProgressLabel>
+</CircularProgress>
   </div>
   );
 };
