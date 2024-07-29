@@ -30,7 +30,8 @@ const Counter_localStotage = () => {
      <Button variant="contained" color="success" onClick={() => handleCounter("+")}>
      Increment
       </Button>
-      <Button variant="outlined" color="  
+      <Button variant="outlined" color="error" onClick={() => handleCounter("-")}>
+      Decrement
       </Button>
      {/* <button onClick={() => handleCounter("+")}>Increment</button> */}
      {/* <button onClick={() => handleCounter("-")}>Decrement</button> */}
