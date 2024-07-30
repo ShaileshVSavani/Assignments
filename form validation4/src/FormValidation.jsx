@@ -45,7 +45,7 @@ const FormValidation = () => {
           placeholder="Enter Username"
           value={formData.values.username}
           onChange={formData.handleChange}
-          onBlur={formData.handle}
+          onBlur={formData.handleBlur}
           className=  {formData.touched.username && formData.errors.username? "error" : "" } 
         
         
@@ -59,7 +59,7 @@ const FormValidation = () => {
           placeholder="Enter email"
           value={formData.values.email}
           onChange={formData.handleChange}
-          onBlur={formData.handle}
+          onBlur={formData.handleBlur}
           className={formData.touched.email && formData.errors.email? "error" : ""}
         />
         {/* {(formData.touched.email && formData.errors.email) ? <p>{formData.errors.email}</p> : null} */}
@@ -71,7 +71,7 @@ const FormValidation = () => {
           placeholder="Enter password"
           value={formData.values.password}
           onChange={formData.handleChange}
-          onBlur={formData.handle}
+          onBlur={formData.handleBlur}
         className={formData.touched.password && formData.errors.password? "error" : ""}
         />
         {/* {(formData.touched.password && formData.errors.password) ? <p>{formData.errors.password}</p> : null} */}
