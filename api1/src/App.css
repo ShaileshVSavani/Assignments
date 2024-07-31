@@ -1,22 +1,40 @@
+
 #root {
-  
   text-align: center;
 }
 
-.product{
+.product {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   padding: 20px;
-  transition: all, 0.5s;
+  transition: all 0.5s;
 }
 
 .product img {
- width: 200px;
- height: 200px;
+  width: 200px;
+  height: 200px;
 }
 
 .product img:hover {
- transform: scale(1.1);
- transition: all, 0.5s ease-in-out;
+  transform: scale(1.1);
+  transition: all 0.5s;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+  padding: 10px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  height: 100%;
+}
+
+.item:hover {
+  transform: scale(1.02);
+  transition: all 0.5s;
 }

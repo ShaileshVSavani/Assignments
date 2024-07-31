@@ -1,31 +1,25 @@
 import React from 'react'
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
 
-const Product = ({id, title, price , image, description}) => {
+
+const Product = ({ id, title, price, image, description }) => {
+
   return (
     <div>
-        <img src={image} alt={title} />
+   
+    <div className='item'>
+        <center><img src={image} alt={title}/></center>
         <h2>{title}</h2>
         <p>Price: ${price}</p>
         <p>{description}</p>
-        <button>Add to Cart</button>
-  
-
-{/* <Card >
-      <Card.Img variant="top" src={image} />
-      <Card.Body>
-        <Card.Title>{title}</Card.Title>
-        <Card.Text>
-         {description}
-        </Card.Text>
-        <Card.Text>Price: ${price}</Card.Text>
-        <Button variant="primary">Buy</Button>
-      </Card.Body>
-    </Card> */}
-
+      <div className='text-center'>
+      <button className='w-100 btn btn-outline-secondary'>Add to Cart</button>
+       </div>
     </div>
+   </div>
   )
 }
 
 export default Product
+
+
+
