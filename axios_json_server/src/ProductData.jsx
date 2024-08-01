@@ -3,12 +3,18 @@ import Product from "./Product";
 import axios from "axios";
 
 const ProductData = () => {
+  const [product, setProduct] = useState({
+    title: "",
+    image: "",
+    price: "",
+    description: "",
+  });
   const [products, setProducts] = useState([]);
+  const [isEdit, setIsEdit] = useState(false);
+  const [editId, setEditId] = useState(null);
 
   const getProductData = async () => {
     try {
-      // const response = await fetch('https://fakestoreapi.com/products')
-      // const data = await response.json()
       let res = await axios.get("http://localhost:3000/user");
       let data = res.data;
       console.log(data);
@@ -17,50 +23,147 @@ const ProductData = () => {
       console.log("Error fetching the products:", error);
     }
   };
-  let postData =  async () => {
-    // let data ={
-    //   title :"react",
-    //   price : 100,
-    
-    // }
-    let res = await axios.post("http://localhost:3000/user", products).then(() => {
-        console.log("Data Posted Successfully"),
-        setProducts(res.data);
-        // getProductData()
-  
-    });
-  };
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    postData()
 
-  }
+  const postData = async () => {
+    try {
+      await axios.post("http://localhost:3000/user", product);
+      console.log("Data Posted Successfully");
+      getProductData();
+    } catch (error) {
+      console.log("Error posting the product:", error);
+    }
+  };
+
+  const updateData = async (id) => {
+    try {
+      await axios.put(`http://localhost:3000/user/${id}`, product);
+      console.log("Data Updated Successfully");
+      getProductData();
+    } catch (error) {
+      console.log("Error updating the product:", error);
+    }
+  };
+
+  const handleDeleteData = async (id) => {
+    try {
+      await axios.delete(`http://localhost:3000/user/${id}`);
+      console.log("Data Deleted Successfully");
+      getProductData();
+    } catch (error) {
+      console.log("Error deleting the product:", error);
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const { title, price, description, image } = product;
+    if (title === "" || price === "" || description === "" || image === "") {
+      alert("Please fill all the fields");
+      return;
+    }
+    if (isEdit) {
+      updateData(editId);
+    } else {
+      postData();
+    }
+    setProduct({ title: "", image: "", price: "", description: "" });
+    setIsEdit(false);
+    setEditId(null);
+  };
+
+  const handleEditData = (product) => {
+    setProduct(product);
+    setIsEdit(true);
+    setEditId(product.id);
+  };
+
   useEffect(() => {
     getProductData();
   }, []);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
-
-    setProducts({...products, [name]: value });
+    setProduct({ ...product, [name]: value });
   };
 
   return (
     <div>
-      <div>
-        <h2>Create Data</h2>
-        <form onSubmit={handleSubmit}>
-          <input type="text" name="title" placeholder="Enter Title" value={products.title}  onChange={handleChange} />
-          <br />
-          <input type="number" name="price" placeholder="Enter Price" value={products.price} onChange={handleChange}/>
-          <br />
-          {/* <input type="url" placeholder='Entet Url'/> */}
-          <br />
-          <input type="submit" value="Submit" />
+      <div className="form-data">
+        <h2>{isEdit ? "Edit Product" : "Create Product"}</h2>
+        <form onSubmit={handleSubmit} className="">
+          <div className="mt-2 ">
+            <input
+              className="w-100 p-1 rounded border-1"
+              type="text"
+              name="title"
+              placeholder="Enter Title"
+              value={product.title}
+              onChange={handleChange}
+            />
+          </div>
+
+          <div className="mt-2">
+            <input
+              className="w-100 p-1 rounded border-1"
+              type="number"
+              name="price"
+              placeholder="Enter Price"
+              value={product.price}
+              onChange={handleChange}
+            />
+          </div>
+
+          <div className="mt-2">
+            <input
+              className="w-100 p-1 rounded border-1"
+              type="url"
+              name="image"
+              placeholder="Enter Image URL"
+              value={product.image}
+              onChange={handleChange}
+            />
+          </div>
+
+          <div className="mt-2">
+            <input
+              className="w-100 p-1 rounded border-1"
+              type="text"
+              name="description"
+              placeholder="Enter Description"
+              value={product.description}
+              onChange={handleChange}
+            />
+          </div>
+
+          <div className="mt-2 mb-2 ">
+            <button className="btn btn-outline-secondary">
+              {isEdit ? "Update" : "Submit"}
+            </button>
+          </div>
         </form>
       </div>
       <div className="product">
         {products.map((product) => (
-          <Product {...product} key={product.id} />
+          <div key={product.id} className="item">
+            <Product {...product} />
+            <button
+              className="btn btn-outline-success w-50 mt-2"
+              onClick={() => handleEditData(product)}
+            >
+              Edit
+            </button>
+           
+            <button
+              className="btn btn-outline-warning w-50 mt-2"
+              onClick={() =>
+                window.confirm("Are you sure you want to delete this?")
+                  ? handleDeleteData(product.id)
+                  : null
+              }
+            >
+              Delete
+            </button>
+          </div>
         ))}
       </div>
     </div>
