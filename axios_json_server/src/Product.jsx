@@ -10,7 +10,7 @@ const Product = ({ id, title, price, description, image }) => {
     //   <p>{description}</p>
     // </div>
 
-    <div className="card bg-base-100 w-96 shadow-xl ">
+    <div className="card bg-base-100 w-96 shadow-xl">
       <figure className="px-10 pt-10">
         <img src={image} alt="image" className=" p-2"  />
       </figure>
@@ -18,7 +18,7 @@ const Product = ({ id, title, price, description, image }) => {
         <h2 className="card-title">{title}</h2>
         <p>{price}</p>
         <p>{description}</p>
-        <button className="btn btn-outline-primary">Buy Now</button>
+        <button className="btn btn-outline-primary ">Buy Now</button>
       </div>
     </div>
   );
