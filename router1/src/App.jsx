@@ -8,6 +8,7 @@ import Product from "../pages/Product";
 import Signup from "../pages/Signup";
 import Login from "../pages/Login";
 import NotFound from "../pages/NotFound";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
 
