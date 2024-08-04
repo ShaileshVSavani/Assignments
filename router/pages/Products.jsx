@@ -58,7 +58,7 @@ const Products = () => {
     const matchesCategory = selectedCategory === "" || item.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
-
+ 
   return (
     <div className="container mx-auto p-4">
       <div className="mb-2 flex justify-between items-center">
