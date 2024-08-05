@@ -233,7 +233,7 @@ const ProductData = () => {
             </div>
             <div>
               <button
-                className="btn btn-outline btn-primary w-80"
+                className="btn btn-outline btn-primary w-full"
                 type="submit"
               >
                 Submit
@@ -257,7 +257,7 @@ const ProductData = () => {
               <div className="p-6">
                 <h2 className="text-xl font-semibold mb-2 text-gray-800">{ele.title}</h2>
                 <p className="text-lg text-gray-600 mb-4">${ele.price}</p>
-                <button className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors">
+                <button className="w-full btn btn-outline btn-success">
                   Buy Now
                 </button>
               </div>
