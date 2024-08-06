@@ -13,7 +13,7 @@ const ProductData = () => {
 
   const getProductData = async () => {
     try {
-      let res = await axios.get("https://json-server-react-exam.onrender.com");
+      let res = await axios.get("https://json-server-react-exam.onrender.com/user");
       let data = res.data;
       setProducts(data);
     } catch (error) {
@@ -23,7 +23,7 @@ const ProductData = () => {
 
   const postData = async () => {
     try {
-      await axios.post("https://json-server-react-exam.onrender.com", product);
+      await axios.post("https://json-server-react-exam.onrender.com/user", product);
       getProductData();
     } catch (error) {
       console.log("Error posting the product:", error);
