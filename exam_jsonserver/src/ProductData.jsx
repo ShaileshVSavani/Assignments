@@ -102,7 +102,7 @@ const ProductData = () => {
           {products.map((ele) => (
             <div
             key={ele.id}
-            className="flex flex-col bg-gray rounded-lg shadow-lg border border-gray-200 overflow-hidden hover:scale-105 duration-500 ease-in-out hover:shadow-xl"
+            className="flex flex-col bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden hover:scale-105 duration-500 ease-in-out hover:shadow-xl"
           >
             <div className="flex-shrink-0 hover:scale-105 p-3 duration-500 ease-in-out">
               <figure className="relative w-full h-64 bg-gray-200">
