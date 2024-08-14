@@ -1,3 +1,5 @@
+
+
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
@@ -11,6 +13,7 @@ const ProductData = () => {
   const getData = async () => {
     let res = await axios.get("https://fakestoreapi.com/products");
     setProducts(res.data);
+    setFilterData(res.data);
     console.log(res.data);
   };
   useEffect(() => {
@@ -32,16 +35,15 @@ const ProductData = () => {
   };
 
     const filterByCategory= (category) => {
-      if(category){
+      //if(category){
           let data = [...products]
           data = data.filter((item)=>item.category == category)
           console.log(data)
           setFilterData(data)
-      }
+     // }
     }
 
-    const handleSearch = (e) => {
-      let search = e.target.value;
+    const handleSearch = (search) => {
       let data = [...products];
       data = data.filter((item) =>
         item.title.toLowerCase().includes(search.toLowerCase())
@@ -55,7 +57,7 @@ const ProductData = () => {
     let sort = query.get("sort");
     let category = query.get("category");
     let search = query.get("search");
-    console.log(sort, category,search);
+    console.log(sort, category, search);
 
     if (sort) {
       filterBySort(sort);
@@ -67,9 +69,9 @@ const ProductData = () => {
       setFilterData(products);
     }
     if (search) {
-    //   handleSearch(search);
+      handleSearch(search);
     }
-  }, [query, products]);
+  }, [query]);
   return (
     <div>
       <FilteredData />
@@ -97,3 +99,6 @@ const ProductData = () => {
 };
 
 export default ProductData;
+
+
+
