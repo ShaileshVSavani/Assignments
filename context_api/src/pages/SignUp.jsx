@@ -12,7 +12,11 @@ const SignUp = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const user = {username, email, password };
+        const user = {
+            username,
+            email,
+            password
+        };
         const result = signUp(user);
         console.log(user);
         console.log(result);

@@ -9,9 +9,19 @@ const initialState = {
 export const userReducer = (state = initialState, { type, payload }) => { 
     switch (type) { 
         case SIGNUP:
-            return { ...state, users: { ...state.users, payload }, isLoggedIn: true }
+            return { ...state, users: [ ...state.users, payload ], /* isLoggedIn: true */ user : payload}
         case LOGOUT:
             return { ...state, users: {}, isLoggedIn: false }
+        case LOGIN:
+            let userCredentials = state.users.find(ele => ele.email === payload.email && ele.password === payload.password)
+            if (userCredentials) {
+                return { ...state, user: userCredentials, isLoggedIn: true }
+                
+            }
+            else {
+                return state
+            }
+      
         default:
             return state
 

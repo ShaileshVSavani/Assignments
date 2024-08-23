@@ -5,9 +5,9 @@ import { userReducer } from "./users/UsersReducer";
 
 // export const Store = legacy_createStore(counterReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
-export const Store = legacy_createStore(userReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
-// export const Store = combineReducers({
-//     counter: counterReducer,
-//     users : userReducer
-// })
+ const AllReducer = combineReducers({
+    counter: counterReducer,
+    user : userReducer
+})
+export const Store = legacy_createStore(AllReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())

@@ -13,7 +13,10 @@ const Login = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const credentials = { email, password };
+        const credentials = {
+            email,
+            password
+        };
         const result = login(credentials);
         console.log(result);
         console.log(credentials.email);
