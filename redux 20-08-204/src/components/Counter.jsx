@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from 'react-redux'
-import { decrease, increase, reset } from "../counter/Action";
+import { decrease, increase, reset } from "../redux/counter/Action";
 // import { decrease, increase, reset } from './redux/counter/Action'
 
 const Counter = () => {
