@@ -1,89 +1,13 @@
-// import { LOGIN, LOGOUT, SIGNUP } from "./ActionType"
-
-// const initialState = {
-//     users: [],
-//     user: {},
-//     isLoggedIn: false
-// }
-
-// export const userReducer = (state = initialState, { type, payload }) => {
-//     switch (type) {
-//         case SIGNUP:
-//             return { ...state, users: [ ...state.users, payload ], /* isLoggedIn: true */ user : payload}
-//         case LOGOUT:
-//             return { ...state, users: {}, isLoggedIn: false }
-//         case LOGIN: {
-//             let userCredentials = state.users.find(ele => ele.email === payload.email && ele.password === payload.password)
-//             if (userCredentials) {
-//                 return { ...state, user: userCredentials, isLoggedIn: true }
-                
-//             }
-//             else {
-//                 return state
-//             }
-//         }
-      
-//         default:
-//             return state
-
-//     }
-// }
-
 
 
 // import { LOGIN, LOGOUT, SIGNUP } from "./ActionType";
 
 // const initialState = {
-//     users: [],
-//     user: {},
-//     isLoggedIn: false
-// };
-
-// export const userReducer = (state = initialState, { type, payload }) => {
-//     switch (type) {
-//         case SIGNUP:
-//             return {
-//                 ...state,
-//                 users: [ ...state.users, payload ],
-//                 user: payload,
-//                 isLoggedIn: true // Assuming signup also logs in the user
-//             };
-//         case LOGOUT:
-//             return {
-//                 ...state,
-//                 user: {},
-//                 isLoggedIn: false
-//             };
-//         case LOGIN: {
-//             let userCredentials = state.users.find(
-//                 ele => ele.email === payload.email && ele.password === payload.password
-//             );
-//             if (userCredentials) {
-//                 return {
-//                     ...state,
-//                     user: userCredentials,
-//                     isLoggedIn: true
-//                 };
-//             } else {
-//                 return state;
-//             }
-//         }
-//         default:
-//             return state;
-//     }
-// };
-
-
-
-
-// import { LOGIN, LOGOUT, SIGNUP } from "./ActionType";
-
-// const initialState = {
-//     users: [], // Store registered users
-//     user: {}, // Store the currently logged-in user
-//     isLoggedIn: false, // Track login status
-//     loginError: null, // Store any login errors
-//     signupError: null, // Store any signup errors
+//     users: [], 
+//     user: {}, 
+//     isLoggedIn: false,
+//     loginError: null, 
+//     signupError: null, 
 // };
 
 // export const userReducer = (state = initialState, { type, payload }) => {
@@ -95,7 +19,7 @@
 //                 return {
 //                     ...state,
 //                     signupError: "User already exists",
-//                     loginError: null, // Clear any previous login errors
+//                     loginError: null, 
 //                 };
 //             }
 
@@ -104,8 +28,8 @@
 //                 users: [ ...state.users, payload ],
 //                 user: payload,
 //                 isLoggedIn: true,
-//                 signupError: null, // Clear any signup errors
-//                 loginError: null, // Clear any previous login errors
+//                 signupError: null, 
+//                 loginError: null, 
 //             };
 //         }
 
@@ -119,13 +43,13 @@
 //                     ...state,
 //                     user: userCredentials,
 //                     isLoggedIn: true,
-//                     loginError: null, // Clear any login errors
+//                     loginError: null, 
 //                 };
 //             } else {
 //                 return {
 //                     ...state,
 //                     loginError: "Invalid email or password",
-//                     signupError: null, // Clear any signup errors
+//                     signupError: null, 
 //                 };
 //             }
 //         }
@@ -133,10 +57,10 @@
 //         case LOGOUT: {
 //             return {
 //                 ...state,
-//                 user: {}, // Clear the current user
-//                 isLoggedIn: false, // Update login status
-//                 loginError: null, // Clear any login errors
-//                 signupError: null, // Clear any signup errors
+//                 user: {}, 
+//                 isLoggedIn: false,
+//                 loginError: null, 
+//                 signupError: null, 
 //             };
 //         }
 
@@ -146,16 +70,15 @@
 // };
 
 
-
 // userReducer.js
 import { LOGIN, LOGOUT, SIGNUP } from "./ActionType";
 
 const initialState = {
-    users: [], // This can be empty initially; users will be fetched from the API
-    user: {}, // Store the currently logged-in user
+    users: [], 
+    user: {}, 
     isLoggedIn: false,
-    loginError: null,
-    signupError: null,
+    loginError: null, 
+    signupError: null, 
 };
 
 export const userReducer = (state = initialState, { type, payload }) => {
@@ -163,11 +86,10 @@ export const userReducer = (state = initialState, { type, payload }) => {
         case SIGNUP: {
             return {
                 ...state,
-                users: [ ...state.users, payload ],
                 user: payload,
                 isLoggedIn: true,
-                signupError: null,
-                loginError: null,
+                signupError: null, 
+                loginError: null, 
             };
         }
 
@@ -177,13 +99,13 @@ export const userReducer = (state = initialState, { type, payload }) => {
                     ...state,
                     user: payload,
                     isLoggedIn: true,
-                    loginError: null,
+                    loginError: null, 
                 };
             } else {
                 return {
                     ...state,
                     loginError: "Invalid email or password",
-                    signupError: null,
+                    signupError: null, 
                 };
             }
         }
@@ -191,10 +113,10 @@ export const userReducer = (state = initialState, { type, payload }) => {
         case LOGOUT: {
             return {
                 ...state,
-                user: {},
+                user: {}, 
                 isLoggedIn: false,
-                loginError: null,
-                signupError: null,
+                loginError: null, 
+                signupError: null, 
             };
         }
 
