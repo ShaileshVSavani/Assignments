@@ -23,54 +23,73 @@
 
 
 
-// actions.js
+
+
 import axios from 'axios';
 import { LOGIN, LOGOUT, SIGNUP } from './ActionType';
 
-const API_URL = 'http://localhost:3000/users'; // Your json-server API URL
+const API_URL = 'http://localhost:3000/users'; 
 
 export const UserSignUp = (user) => async (dispatch) => {
     try {
-        const response = await axios.post(API_URL, user);
-        dispatch({
-            type: SIGNUP,
-            payload: response.data
+        // Check if the user already exists
+        const response = await axios.get(API_URL, {
+            params: { email: user.email }
         });
+
+        if (response.data.length > 0) {
+            // User already exists
+            console.log("User already exists", response.data);
+            alert("User already exists")
+            dispatch({
+                type: SIGNUP,
+                payload: { error: "User already exists" }
+            });
+        } else {
+            // Create new user
+            const createUser = await axios.post(API_URL, user);
+            console.log("User created", createUser);
+            dispatch({
+                type: SIGNUP,
+                payload: createUser.data
+            });
+        }
     } catch (error) {
-        console.error('Error during signup:', error);
-        // Handle error appropriately
+        console.log('Error during signup:', error);
     }
 };
 
 export const UserLogin = (user) => async (dispatch) => {
     try {
+        // Find user by email and password
         const response = await axios.get(API_URL, {
-            params: {
-                email: user.email,
-                password: user.password
-            }
+            params: { email: user.email, password: user.password }
         });
-        const users = response.data;
+        const users = response.data; 
 
         if (users.length > 0) {
             dispatch({
                 type: LOGIN,
-                payload: users[0] // Assuming the first user in the array is the valid user
+                payload: users[0]  
             });
         } else {
             dispatch({
                 type: LOGIN,
-                payload: null
+                payload: { error: "Invalid email or password" }
             });
         }
     } catch (error) {
-        console.error('Error during login:', error);
-        // Handle error appropriately
+        console.log('Error during login:', error);
     }
 };
 
 export const UserLogout = () => ({
     type: LOGOUT
 });
+
+
+
+
+
 
 

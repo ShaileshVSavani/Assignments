@@ -3,12 +3,14 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { CreateBlog } from "../redux/blog/Action";
 import { PostBlogData } from "../redux/blogApi/Action";
+import { useNavigate } from "react-router-dom";
 
 const AddBlog = () => {
   let [title, setTitle] = useState("");
   let [img, setImg] = useState("");
   let [content, setContent] = useState("");
   let dispatch = useDispatch();
+  let navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -19,10 +21,9 @@ const AddBlog = () => {
       // id: Date.now(),
     };
 
-    // if (blog.title === '' || blog.img === '' || blog.content === '') return;
-
     // dispatch(CreateBlog(blog));
     dispatch(PostBlogData(blog));
+    navigate('/')
     setContent("");
     setImg("");
     setTitle("");
