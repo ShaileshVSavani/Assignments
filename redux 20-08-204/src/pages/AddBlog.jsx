@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { CreateBlog } from "../redux/blog/Action";
+import { PostBlogData } from "../redux/blogApi/Action";
 
 const AddBlog = () => {
   let [title, setTitle] = useState("");
@@ -15,12 +16,13 @@ const AddBlog = () => {
       title,
       img,
       content,
-      id: Date.now(),
+      // id: Date.now(),
     };
 
     // if (blog.title === '' || blog.img === '' || blog.content === '') return;
 
-    dispatch(CreateBlog(blog));
+    // dispatch(CreateBlog(blog));
+    dispatch(PostBlogData(blog));
     setContent("");
     setImg("");
     setTitle("");

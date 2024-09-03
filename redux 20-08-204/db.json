@@ -1,8 +1,36 @@
 {
-  "users": [],
+  "users": [
+    {
+      "id": "5093",
+      "username": "abc",
+      "email": "abc@gmail.com",
+      "password": "Abc@123"
+    }
+  ],
   "blogs": [
     {
-      "test": "1224"
+      "id": "b2e4",
+      "title": "abc",
+      "img": "https://media-cdn.tripadvisor.com/media/photo-s/0c/bb/a3/97/predator-ride-in-the.jpg",
+      "content": "abcde"
+    },
+    {
+      "id": "51bb",
+      "title": "qwer",
+      "img": "https://media-cdn.tripadvisor.com/media/photo-s/0c/bb/a3/97/predator-ride-in-the.jpg",
+      "content": "qwerta"
+    },
+    {
+      "id": "4eaa",
+      "title": "zaq",
+      "img": "https://media-cdn.tripadvisor.com/media/photo-s/0c/bb/a3/97/predator-ride-in-the.jpg",
+      "content": "qwsxz"
+    },
+    {
+      "id": "9ff3",
+      "title": "cde",
+      "img": "https://media-cdn.tripadvisor.com/media/photo-s/0c/bb/a3/97/predator-ride-in-the.jpg",
+      "content": "edv"
     }
   ]
 }
