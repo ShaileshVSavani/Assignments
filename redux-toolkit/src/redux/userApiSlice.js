@@ -4,10 +4,7 @@ import axios from "axios";
 const baseUrl = "http://localhost:3000";
 
 export const getUser = createAsyncThunk("/users", async () => {
-    let res = await axios.get(`${baseUrl}/users.m3RJKK''
-        
-            234H
-            5U`)
+    let res = await axios.get(`${baseUrl}/users`)
     return res.data
 })
 export const createUser = createAsyncThunk("/createUser", async (user) => {

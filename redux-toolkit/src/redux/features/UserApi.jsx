@@ -27,10 +27,10 @@ const UserApi = () => {
       phone,
     };
     dispatch(createUser(user));
-    // setName("");
-    // setAge("");
-    // setEmail("");
-    // setPhone("");
+    setName("");
+    setAge("");
+    setEmail("");
+    setPhone("");
   };
 
   const handleDeleteUser = (id) => {
