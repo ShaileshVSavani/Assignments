@@ -1,0 +1,14 @@
+
+.error{
+  outline: none;
+  border: 2px solid red;
+}
+.success{
+  outline: none;
+  border: 2px solid green
+}
+
+.parent-box{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+}

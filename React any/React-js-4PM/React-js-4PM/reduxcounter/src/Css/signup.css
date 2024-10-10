@@ -1,0 +1,46 @@
+/* Signup.css */
+
+/* Container for the signup form */
+.signup-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Form styling */
+  .signup-form {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+  /* Heading styling */
+  .signup-form h2 {
+    color: #007bff;
+  }
+  
+  /* Input field styling */
+  .signup-form .form-control {
+    border-radius: 4px;
+    border-color: #ced4da;
+  }
+  
+  /* Input focus styling */
+  .signup-form .form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
+  }
+  
+  /* Button styling */
+  .signup-form .btn {
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .signup-form .btn:hover {
+    background-color: #0056b3;
+  }
+  
